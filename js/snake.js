@@ -50,5 +50,26 @@
     }
   };
 
+  var Board = Game.Board = function (dim) {
+    this.dim = dim;
+    this.snake = new Snake(this);
+  };
+
+  Board.prototype.render = function () {
+    var grid = [];
+
+    for (var x = 0; x < this.dim; y++) {
+      var row = []
+      for (var y; y < this.dim; y++) {
+        row.push(".");
+      }
+      grid.push(row);
+    }
+
+    this.snake.segments.forEach(function (segment) {
+      grid[segment.x][segment.y] = 'S'
+    });
+  }
+
 
 })
