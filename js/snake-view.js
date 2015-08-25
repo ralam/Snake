@@ -5,6 +5,7 @@
     this.$el = el;
 
     this.board = new Game.Board(20);
+    this.setupGrid();
 
     var intervalStep = window.setInterval(
       this.step.bind(this),
@@ -29,12 +30,27 @@
     }
   };
 
+  View.prototype.setupGrid = function () {
+    var html = "";
+
+    for (var i = 0; i < this.board.dim; i++) {
+      html += "<div class='row'></div>";
+      for (var j = 0; j < this.board.dim; j++) {
+        html += "<div class='cell'></div>";
+      }
+      html += "</div>";
+    }
+
+    this.$el.html(html);
+    this.$li = this.$el.find("li");
+  };
+
   View.prototype.step = function () {
     this.board.snake.move();
     this.render();
-  }
+  };
 
   View.prototype.render = function () {
     this.$el.html(this.board.render());
-  }
+  };
 })();

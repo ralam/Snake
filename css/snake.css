@@ -1,0 +1,36 @@
+html, body, figure, figcaption, ul, div, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.snake-game {
+  width: 440px;
+  height: 440px;
+  margin: 0 auto;
+}
+
+div.row:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+div.cell {
+  float: left;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000000;
+}
+
+.snake {
+  background: green;
+}
