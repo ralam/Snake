@@ -4,7 +4,19 @@
   var Coord = Game.Coord = function (x, y) {
     this.x = x;
     this.y = y;
-  }
+  };
+
+  Coord.prototype.plus = function (coords) {
+    return (this.x + coord.x) && (this.y + coord.y);
+  };
+
+  Coord.prototype.equals = function (coords) {
+    return (this.x == coord.x) && (this.y == coord.y);
+  };
+
+  Coord.prototype.isOpposite = function (coords) {
+    return (this.x == coord.x * -1) && (this.y == coord.y * -1;
+  };
 
   var Snake = Game.Snake = function (board) {
     this.dir = "N";
@@ -17,4 +29,6 @@
     "S": new Coord(1, 0),
     "W": new Coord(0, -1)
   }
+
+
 })
