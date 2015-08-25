@@ -1,4 +1,4 @@
-(function(){
+(function () {
   var Game = window.Game = window.Game || {};
 
   var View = Game.View = function (el) {
@@ -37,4 +37,4 @@
   View.prototype.render = function () {
     this.$el.html(this.board.render());
   }
-);
+})();

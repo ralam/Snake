@@ -7,15 +7,15 @@
   };
 
   Coord.prototype.plus = function (coords) {
-    return (this.x + coord.x) && (this.y + coord.y);
+    return (this.x + coords.x) && (this.y + coords.y);
   };
 
   Coord.prototype.equals = function (coords) {
-    return (this.x == coord.x) && (this.y == coord.y);
+    return (this.x == coords.x) && (this.y == coords.y);
   };
 
   Coord.prototype.isOpposite = function (coords) {
-    return (this.x == coord.x * -1) && (this.y == coord.y * -1;
+    return (this.x == coords.x * -1) && (this.y == coords.y * -1);
   };
 
   var Snake = Game.Snake = function (board) {
@@ -38,7 +38,7 @@
   };
 
   Snake.prototype.move = function () {
-    this.segments.push(this.head.plus(Snake.DIRS[this.dir]);
+    this.segments.push(this.head().plus(Snake.DIRS[this.dir]));
     this.segments.shift();
   };
 
@@ -72,4 +72,4 @@
   }
 
 
-})
+})();
