@@ -35,6 +35,6 @@
   }
 
   View.prototype.render = function () {
-
+    this.$el.html(this.board.render());
   }
 );
