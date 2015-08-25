@@ -39,7 +39,16 @@
 
   Snake.prototype.move = function (dir) {
     this.segments.push(this.head.plus(Snake.DIRS[this.dir]);
-  }
+    this.segments.shift();
+  };
+
+  Snake.prototype.turn = function (newDir) {
+    if (Snake.DIRS[this.dir].isOpposite(Snake.DIRS[newDir])) {
+      return;
+    } else {
+      this.dir = newDir;
+    }
+  };
 
 
 })
