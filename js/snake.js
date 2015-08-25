@@ -37,7 +37,7 @@
     return this.segments[this.segments.length - 1];
   };
 
-  Snake.prototype.move = function (dir) {
+  Snake.prototype.move = function () {
     this.segments.push(this.head.plus(Snake.DIRS[this.dir]);
     this.segments.shift();
   };
