@@ -21,6 +21,9 @@
   var Snake = Game.Snake = function (board) {
     this.dir = "N";
     this.board = board;
+
+    var center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
+    this.segments = [center];
   };
 
   Snake.DIRS = {
@@ -28,6 +31,10 @@
     "E": new Coord(0, 1),
     "S": new Coord(1, 0),
     "W": new Coord(0, -1)
+  };
+
+  Snake.prototype.move = function (dir) {
+    
   }
 
 
