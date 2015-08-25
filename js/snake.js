@@ -33,8 +33,12 @@
     "W": new Coord(0, -1)
   };
 
+  Snake.prototype.head = function () {
+    return this.segments[this.segments.length - 1];
+  };
+
   Snake.prototype.move = function (dir) {
-    
+    this.segments.push(this.head.plus(Snake.DIRS[this.dir]);
   }
 
 
