@@ -96,28 +96,19 @@
   };
 
   View.prototype.render = function () {
-    this.updateSnakeClass(this.board.snake.segments);
-    this.updateAppleClass([this.board.apple.position]);
+    this.updateClass(this.board.snake.segments, "snake");
+    this.updateClass([this.board.apple.position], "apple");
     this.updatePoints(this.board.points);
   };
 
-  View.prototype.updateSnakeClass = function (coords) {
-    this.$cell.filter(".snake").removeClass('snake');
+  View.prototype.updateClass = function (coords, className) {
+    this.$cell.filter("." + className).removeClass(className);
 
     coords.forEach( function (coord) {
       var location = coord.x * this.board.dim + coord.y;
-      this.$cell.eq(location).addClass('snake');
+      this.$cell.eq(location).addClass(className);
     }.bind(this));
-  };
-
-  View.prototype.updateAppleClass = function (coords) {
-    this.$cell.filter(".apple").removeClass('apple');
-
-    coords.forEach( function (coord) {
-      var location = coord.x * this.board.dim + coord.y;
-      this.$cell.eq(location).addClass('apple');
-    }.bind(this));
-  };
+  }
 
   View.prototype.updatePoints = function (points) {
     $('.points').html("Points: " + points);
