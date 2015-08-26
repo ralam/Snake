@@ -100,7 +100,7 @@
   Snake.prototype.isOccupying = function (array) {
     var result = false;
 
-    array.forEach(function (segment) {
+    this.segments.forEach(function (segment) {
       if (segment.x === array[0] && segment.y === array[1]) {
         result = true;
         return result;
