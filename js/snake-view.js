@@ -59,9 +59,18 @@
     }
   };
 
+  View.prototype.pauseGame = function () {
+    if (this.ready === true) {
+      this.ready = false;
+      window.clearInterval(this.intervalStep);
+    } else {
+      this.ready = true;
+      this.intervalStep = window.setInterval(this.step.bind(this), 200);
+    }
+  }
+
   View.prototype.setupGrid = function () {
     var html = "";
-    var points = "<div class=points></div>";
 
     for (var i = 0; i < this.board.dim; i++) {
       html += "<div class='row'></div>";
@@ -72,7 +81,6 @@
     }
 
     this.$el.html(html);
-    this.$el.append(points);
     this.$cell = this.$el.find(".cell");
   };
 
