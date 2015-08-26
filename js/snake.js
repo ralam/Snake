@@ -22,10 +22,12 @@
     this.dir = "N";
     this.board = board;
 
+    this.turning = false;
+
     var center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
     this.segments = [center];
 
-    this.growthTurns = 3;
+    this.growthTurns = 0;
   };
 
   Snake.DIRS = {
@@ -43,6 +45,7 @@
 
   Snake.prototype.move = function () {
     this.segments.push(this.head().plus(Snake.DIRS[this.dir]));
+    this.turning = false;
 
     if (!this.isValid()) {
       this.segments = [];
@@ -70,10 +73,11 @@
   };
 
   Snake.prototype.turn = function (newDir) {
-    if (Snake.DIRS[this.dir].isOpposite(Snake.DIRS[newDir])) {
+    if (Snake.DIRS[this.dir].isOpposite(Snake.DIRS[newDir]) || this.turning) {
       return;
     } else {
       this.dir = newDir;
+      this.turning = true;
     }
   };
 
