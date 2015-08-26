@@ -4,6 +4,8 @@
   var View = Game.View = function (el) {
     this.$el = el;
 
+    this.ready = false;
+
     // this.startScreen(this.$el)
     // var that = this;
     //
@@ -16,6 +18,7 @@
   };
 
   View.prototype.runGame = function(context) {
+    this.ready = true;
     context.board = new Game.Board(20);
     context.setupGrid();
 
@@ -31,7 +34,7 @@
   //   $el.append(points);
   // }
 
-  View._Keys = {
+  View._MovementKeys = {
     37: "W",
     38: "N",
     39: "E",
@@ -41,8 +44,18 @@
   View.prototype.handleKeyEvent = function (event) {
     var keycode = event.keyCode;
 
-    if (View._Keys[keycode]) {
-      this.board.snake.turn(View._Keys[keycode]);
+    if (keycode === 27) {
+      if (this.ready === true) {
+        this.ready = false;
+        window.clearInterval(this.intervalStep);
+      } else {
+        this.ready = true;
+        this.intervalStep = window.setInterval(this.step.bind(this), 200);
+      }
+    };
+
+    if (View._MovementKeys[keycode]) {
+      this.board.snake.turn(View._MovementKeys[keycode]);
     }
   };
 
