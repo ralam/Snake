@@ -19,6 +19,7 @@
 
   View.prototype.runGame = function(context) {
     this.ready = true;
+    this.gameOver = false;
     context.board = new Game.Board(20);
     context.setupGrid();
 
@@ -44,7 +45,7 @@
   View.prototype.handleKeyEvent = function (event) {
     var keycode = event.keyCode;
 
-    if (keycode === 27) {
+    if (keycode === 27 && this.gameOver === false) {
       if (this.ready === true) {
         this.ready = false;
         window.clearInterval(this.intervalStep);
@@ -53,6 +54,11 @@
         this.intervalStep = window.setInterval(this.step.bind(this), 200);
       }
     };
+
+    if (keycode === 32 && this.gameOver === true) {
+      var that = this
+      this.runGame(that);
+    }
 
     if (View._MovementKeys[keycode]) {
       this.board.snake.turn(View._MovementKeys[keycode]);
@@ -89,8 +95,9 @@
       this.board.snake.move();
       this.render();
     } else {
-      alert("You lose! Your final score is: " + this.board.points);
+      alert("You lose! Your final score is: " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
+      this.gameOver = true;
     }
 
   };
