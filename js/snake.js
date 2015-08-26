@@ -72,8 +72,34 @@
     return true;
   }
 
+  Snake.prototype.isOccupying = function (array) {
+    var result = false;
+
+    array.forEach(function (segment) {
+      if (segment.x == array[0] && segment.y == array[1]) {
+        result = true;
+        return result;
+      }
+    })
+
+    return result;
+  }
+
   var Apple = Game.Apple = function (board) {
-    this.board = board
+    this.board = board;
+    this.replace();
+  }
+
+  Apple.prototype.replace = function () {
+    var x = Math.floor(Math.random() * this.board.dim);
+    var y = Math.floor(Math.random() * this.board.dim));
+
+    while (this.board.snake.isOccupying([x, y])) {
+      x = Math.floor(Math.random() * this.board.dim);
+      y = Math.floor(Math.random() * this.board.dim));
+    }
+
+    this.position = new Coord(x, y);
   }
 
   var Board = Game.Board = function (dim) {
