@@ -101,7 +101,7 @@
     var result = false;
 
     array.forEach(function (segment) {
-      if (segment.x == array[0] && segment.y == array[1]) {
+      if (segment.x === array[0] && segment.y === array[1]) {
         result = true;
         return result;
       }
