@@ -28,7 +28,6 @@ div.cell {
   float: left;
   width: 20px;
   height: 20px;
-  border: 1px solid #000000;
 }
 
 .snake {
@@ -37,4 +36,8 @@ div.cell {
 
 .apple {
   background: #ff0000;
+}
+
+.snake-game {
+  border: 1px solid #000000;
 }

@@ -9,7 +9,7 @@
 
     this.intervalStep = window.setInterval(
       this.step.bind(this),
-      500
+      200
     );
 
     $(window).on("keydown", this.handleKeyEvent.bind(this));
