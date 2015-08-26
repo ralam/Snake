@@ -5,13 +5,10 @@
     this.$el = el;
 
     this.ready = false;
+    this.gameOver = true;
 
-    // this.startScreen(this.$el)
     // var that = this;
-    //
-    // $(".points").on("keydown", this.runGame(that));
-    var that = this;
-    this.runGame(that);
+    // this.runGame(that);
 
 
     $(window).on("keydown", this.handleKeyEvent.bind(this));
