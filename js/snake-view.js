@@ -42,6 +42,15 @@
   View.prototype.handleKeyEvent = function (event) {
     var keycode = event.keyCode;
 
+    this.pauseGame(keycode);
+    this.startGame(keycode);
+
+    if (View._MovementKeys[keycode]) {
+      this.board.snake.turn(View._MovementKeys[keycode]);
+    }
+  };
+
+  View.prototype.pauseGame = function (keycode) {
     if (keycode === 27 && this.gameOver === false) {
       if (this.ready === true) {
         this.ready = false;
@@ -50,25 +59,13 @@
         this.ready = true;
         this.intervalStep = window.setInterval(this.step.bind(this), 200);
       }
-    };
-
-    if (keycode === 32 && this.gameOver === true) {
-      var that = this
-      this.runGame(that);
-    }
-
-    if (View._MovementKeys[keycode]) {
-      this.board.snake.turn(View._MovementKeys[keycode]);
     }
   };
 
-  View.prototype.pauseGame = function () {
-    if (this.ready === true) {
-      this.ready = false;
-      window.clearInterval(this.intervalStep);
-    } else {
-      this.ready = true;
-      this.intervalStep = window.setInterval(this.step.bind(this), 200);
+  View.prototype.startGame = function (keycode) {
+    if (keycode === 32 && this.gameOver === true) {
+      var that = this
+      this.runGame(that);
     }
   }
 
