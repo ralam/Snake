@@ -7,7 +7,7 @@
     this.board = new Game.Board(20);
     this.setupGrid();
 
-    var intervalStep = window.setInterval(
+    this.intervalStep = window.setInterval(
       this.step.bind(this),
       500
     );
@@ -46,8 +46,14 @@
   };
 
   View.prototype.step = function () {
-    this.board.snake.move();
-    this.render();
+    if (this.board.snake.segments.length > 0) {
+      this.board.snake.move();
+      this.render();
+    } else {
+      alert("You lose!");
+      window.clearInterval(this.intervalStep);
+    }
+
   };
 
   View.prototype.render = function () {

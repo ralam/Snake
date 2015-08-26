@@ -46,6 +46,8 @@
     if (!this.isValid()) {
       this.segments = [];
     }
+
+
   };
 
   Snake.prototype.turn = function (newDir) {
