@@ -4,16 +4,32 @@
   var View = Game.View = function (el) {
     this.$el = el;
 
-    this.board = new Game.Board(20);
-    this.setupGrid();
+    // this.startScreen(this.$el)
+    // var that = this;
+    //
+    // $(".points").on("keydown", this.runGame(that));
+    var that = this;
+    this.runGame(that);
 
-    this.intervalStep = window.setInterval(
-      this.step.bind(this),
-      200
-    );
 
     $(window).on("keydown", this.handleKeyEvent.bind(this));
   };
+
+  View.prototype.runGame = function(context) {
+    context.board = new Game.Board(20);
+    context.setupGrid();
+
+    context.intervalStep = window.setInterval(
+      context.step.bind(context),
+      200
+    );
+  };
+
+  // View.prototype.startScreen = function ($el) {
+  //   var points = "<div class=points>Welcome to Snake.\n Use the arrow keys to control the snake.\n Grow your snake by eating apples.\n Press any key to start.</div>";
+  //
+  //   $el.append(points);
+  // }
 
   View._Keys = {
     37: "W",
