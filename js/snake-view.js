@@ -32,6 +32,7 @@
 
   View.prototype.setupGrid = function () {
     var html = "";
+    var points = "<div class=points></div>";
 
     for (var i = 0; i < this.board.dim; i++) {
       html += "<div class='row'></div>";
@@ -42,6 +43,7 @@
     }
 
     this.$el.html(html);
+    this.$el.append(points);
     this.$cell = this.$el.find(".cell");
   };
 

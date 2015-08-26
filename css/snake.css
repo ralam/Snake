@@ -41,3 +41,12 @@ div.cell {
 .snake-game {
   border: 1px solid #000000;
 }
+
+.points {
+  width: 300px;
+  height: 100px;
+  margin: 40px auto;
+
+  border: 1px solid #ff0000;
+  bottom: -10;
+}

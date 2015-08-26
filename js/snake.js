@@ -66,6 +66,7 @@
   Snake.prototype.eatApple = function () {
     if (this.head().equals(this.board.apple.position)) {
       this.growthTurns += 3;
+      this.board.points += 10;
       return true;
     } else {
       return false;
@@ -133,6 +134,7 @@
     this.dim = dim;
     this.snake = new Snake(this);
     this.apple = new Apple(this);
+    this.points = 0;
   };
 
   Board.BLANK_SYMBOL = ".";
