@@ -48,12 +48,25 @@
       this.segments = [];
     }
 
+    if (this.eatApple()) {
+      this.board.apple.replace();
+    }
+
     if (this.growthTurns > 0) {
       this.growthTurns -= 1;
     } else {
       this.segments.shift();
     }
 
+  };
+
+  Snake.prototype.eatApple = function () {
+    if (this.head().equals(this.board.apple.position)) {
+      this.growthTurns += 3;
+      return true;
+    } else {
+      return false;
+    }
   };
 
   Snake.prototype.turn = function (newDir) {
