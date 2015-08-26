@@ -46,8 +46,6 @@
     if (!this.isValid()) {
       this.segments = [];
     }
-
-
   };
 
   Snake.prototype.turn = function (newDir) {
@@ -56,11 +54,6 @@
     } else {
       this.dir = newDir;
     }
-  };
-
-  var Board = Game.Board = function (dim) {
-    this.dim = dim;
-    this.snake = new Snake(this);
   };
 
   Snake.prototype.isValid = function () {
@@ -78,6 +71,15 @@
 
     return true;
   }
+
+  var Apple = Game.Apple = function (board) {
+    this.board = board
+  }
+
+  var Board = Game.Board = function (dim) {
+    this.dim = dim;
+    this.snake = new Snake(this);
+  };
 
   Board.BLANK_SYMBOL = ".";
 
@@ -102,7 +104,6 @@
       grid[segment.x][segment.y] = Snake.SYMBOL;
     });
 
-
     var rowStrs = [];
     grid.map(function (row) {
       return row.join("");
@@ -113,6 +114,5 @@
     return (coord.x < this.dim && coord.x >= 0) &&
     (coord.y < this.dim && coord.y >= 0)
   };
-
 
 })();
