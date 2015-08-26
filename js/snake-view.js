@@ -52,7 +52,7 @@
       this.board.snake.move();
       this.render();
     } else {
-      alert("You lose!");
+      alert("You lose! Your final score is: " + this.board.points);
       window.clearInterval(this.intervalStep);
     }
 
@@ -60,7 +60,8 @@
 
   View.prototype.render = function () {
     this.updateSnakeClass(this.board.snake.segments);
-    this.updateAppleClass([this.board.apple.position])
+    this.updateAppleClass([this.board.apple.position]);
+    this.updatePoints(this.board.points);
   };
 
   View.prototype.updateSnakeClass = function (coords) {
@@ -79,5 +80,9 @@
       var location = coord.x * this.board.dim + coord.y;
       this.$cell.eq(location).addClass('apple');
     }.bind(this));
+  };
+
+  View.prototype.updatePoints = function (points) {
+    $('.points').html("Points: " + points);
   };
 })();
