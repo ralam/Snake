@@ -51,8 +51,6 @@
   };
 
   View.prototype.render = function () {
-    // this.$el.html(this.board.render());
-
     this.updateSnakeClass(this.board.snake.segments);
   };
 

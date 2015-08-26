@@ -42,6 +42,10 @@
   Snake.prototype.move = function () {
     this.segments.push(this.head().plus(Snake.DIRS[this.dir]));
     this.segments.shift();
+
+    if (!this.isValid()) {
+      this.segments = [];
+    }
   };
 
   Snake.prototype.turn = function (newDir) {
@@ -56,6 +60,22 @@
     this.dim = dim;
     this.snake = new Snake(this);
   };
+
+  Snake.prototype.isValid = function () {
+    var head = this.head()
+
+    if (!this.board.validCoord(head)) {
+      return false
+    }
+
+    for(var i = 0; i < this.segments.length - 1; i++) {
+      if (this.segments[i] == head()) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 
   Board.BLANK_SYMBOL = ".";
 
@@ -85,6 +105,11 @@
     grid.map(function (row) {
       return row.join("");
     }).join("\n");
+  };
+
+  Board.prototype.validCoord = function (coord) {
+    return (coord.x < this.dim && coord.x >= 0) &&
+    (coord.y < this.dim && coord.y >= 0)
   };
 
 
