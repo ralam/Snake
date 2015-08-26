@@ -23,7 +23,7 @@
   }
 
   View.prototype.handleKeyEvent = function (event) {
-    var keycode = event.keydown();
+    var keycode = event.keyCode;
 
     if (View._Keys[keycode]) {
       this.board.snake.turn(View._Keys[keycode]);
@@ -58,6 +58,7 @@
 
   View.prototype.render = function () {
     this.updateSnakeClass(this.board.snake.segments);
+    this.updateAppleClass([this.board.apple.position])
   };
 
   View.prototype.updateSnakeClass = function (coords) {
@@ -67,5 +68,14 @@
       var location = coord.x * this.board.dim + coord.y;
       this.$cell.eq(location).addClass('snake');
     }.bind(this));
-  }
+  };
+
+  View.prototype.updateAppleClass = function (coords) {
+    this.$cell.filter(".apple").removeClass('apple');
+
+    coords.forEach( function (coord) {
+      var location = coord.x * this.board.dim + coord.y;
+      this.$cell.eq(location).addClass('apple');
+    }.bind(this));
+  };
 })();

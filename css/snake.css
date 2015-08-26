@@ -32,5 +32,9 @@ div.cell {
 }
 
 .snake {
-  background: green;
+  background: #00ff00;
+}
+
+.apple {
+  background: #ff0000;
 }

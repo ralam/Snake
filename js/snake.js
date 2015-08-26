@@ -70,7 +70,7 @@
     }
 
     return true;
-  }
+  };
 
   Snake.prototype.isOccupying = function (array) {
     var result = false;
@@ -83,28 +83,31 @@
     })
 
     return result;
-  }
+  };
 
   var Apple = Game.Apple = function (board) {
     this.board = board;
     this.replace();
-  }
+  };
+
+  Apple.SYMBOL = "A";
 
   Apple.prototype.replace = function () {
     var x = Math.floor(Math.random() * this.board.dim);
-    var y = Math.floor(Math.random() * this.board.dim));
+    var y = Math.floor(Math.random() * this.board.dim);
 
     while (this.board.snake.isOccupying([x, y])) {
       x = Math.floor(Math.random() * this.board.dim);
-      y = Math.floor(Math.random() * this.board.dim));
+      y = Math.floor(Math.random() * this.board.dim);
     }
 
     this.position = new Coord(x, y);
-  }
+  };
 
   var Board = Game.Board = function (dim) {
     this.dim = dim;
     this.snake = new Snake(this);
+    this.apple = new Apple(this);
   };
 
   Board.BLANK_SYMBOL = ".";
@@ -129,6 +132,8 @@
     this.snake.segments.forEach(function (segment) {
       grid[segment.x][segment.y] = Snake.SYMBOL;
     });
+
+    grid[this.apple.position.x][this.apple.position.y] = Apple.SYMBOL;
 
     var rowStrs = [];
     grid.map(function (row) {
