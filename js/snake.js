@@ -80,7 +80,7 @@
       grid[segment.x][segment.y] = Snake.SYMBOL;
     });
 
-    // join it up
+
     var rowStrs = [];
     grid.map(function (row) {
       return row.join("");

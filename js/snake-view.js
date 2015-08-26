@@ -42,7 +42,7 @@
     }
 
     this.$el.html(html);
-    this.$li = this.$el.find("li");
+    this.$cell = this.$el.find(".cell");
   };
 
   View.prototype.step = function () {
@@ -51,6 +51,17 @@
   };
 
   View.prototype.render = function () {
-    this.$el.html(this.board.render());
+    // this.$el.html(this.board.render());
+
+    this.updateSnakeClass(this.board.snake.segments);
   };
+
+  View.prototype.updateSnakeClass = function (coords) {
+    this.$cell.filter(".snake").removeClass('snake');
+
+    coords.forEach( function (coord) {
+      var location = coord.x * this.board.dim + coord.y;
+      this.$cell.eq(location).addClass('snake');
+    }.bind(this));
+  }
 })();
