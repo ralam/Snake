@@ -71,8 +71,6 @@
 
   };
 
-
-
   Snake.prototype.eatApple = function () {
     var eaten = false
 

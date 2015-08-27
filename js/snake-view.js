@@ -22,7 +22,7 @@
 
     context.intervalStep = window.setInterval(
       context.step.bind(context),
-      200
+      100
     );
   };
 
@@ -89,7 +89,7 @@
       this.board.snake.move();
       this.render();
     } else {
-      alert("You lose! Your final score is: " + this.board.points + ". Press Space to start a new game");
+      alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
       this.gameOver = true;
     }
