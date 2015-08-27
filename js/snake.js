@@ -54,7 +54,7 @@
     if (this.eatApple()) {
       this.board.removeApple();
       if (this.board.apples.length === 0) {
-        var n = Math.floor(Math.random() * 2) + 1;
+        var n = Math.floor(Math.random() * 3) + 1;
 
         for (n; n > 0; n--) {
           this.board.apple.replace();
