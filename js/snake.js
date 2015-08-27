@@ -52,15 +52,15 @@
     }
 
     if (this.eatApple()) {
-      for (var i = 0; i < this.board.apples.length; i++) {
-        var applePos = this.board.apples[i];
-        if (applePos.x == this.head().x && applePos.y == this.head().y) {
-          var eatenAppleIndex = i;
+      this.board.removeApple();
+      if (this.board.apples.length === 0) {
+        var n = Math.floor(Math.random() * 2) + 1;
+
+        for (n; n > 0; n--) {
+          this.board.apple.replace();
+          this.board.apples.push(this.board.apple.position)
         }
       }
-      this.board.apples.splice(eatenAppleIndex, 1);
-      this.board.apple.replace();
-      this.board.apples.push(this.board.apple.position)
     }
 
     if (this.growthTurns > 0) {
@@ -199,7 +199,13 @@
   };
 
   Board.prototype.removeApple = function (coord) {
-
+    for (var i = 0; i < this.apples.length; i++) {
+      var applePos = this.apples[i];
+      if (applePos.x == this.snake.head().x && applePos.y == this.snake.head().y) {
+        var eatenAppleIndex = i;
+      }
+    }
+    this.apples.splice(eatenAppleIndex, 1);
   };
 
 })();
