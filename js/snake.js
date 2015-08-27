@@ -52,7 +52,10 @@
     }
 
     if (this.eatApple()) {
+      var eatenAppleIndex = this.board.apples.positions.indexOf(this.board.apple.position)
       this.board.apple.replace();
+      this.board.apples.positions.splice(eatenAppleIndex, 1);
+      this.board.apples.positions.push(this.board.apple.position)
     }
 
     if (this.growthTurns > 0) {
@@ -64,13 +67,19 @@
   };
 
   Snake.prototype.eatApple = function () {
-    if (this.head().equals(this.board.apple.position)) {
-      this.growthTurns += 3;
-      this.board.points += 10;
-      return true;
-    } else {
-      return false;
-    }
+    var eaten = false
+
+    this.board.apples.positions.forEach(function (position) {
+      if (this.head().equals(position)) {
+        this.growthTurns += 3;
+        this.board.points += 10;
+        eaten = true;
+        return eaten;
+      }
+    }.bind(this));
+
+
+    return eaten;
   };
 
   Snake.prototype.turn = function (newDir) {
@@ -111,6 +120,11 @@
     return result;
   };
 
+  var Apples = Game.Apples = function (board) {
+    this.board = board;
+    this.positions = [];
+  }
+
   var Apple = Game.Apple = function (board) {
     this.board = board;
     this.replace();
@@ -133,7 +147,9 @@
   var Board = Game.Board = function (dim) {
     this.dim = dim;
     this.snake = new Snake(this);
+    this.apples = new Apples(this);
     this.apple = new Apple(this);
+    this.apples.positions.push(this.apple.position);
     this.points = 0;
   };
 
