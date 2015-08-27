@@ -99,7 +99,7 @@
   View.prototype.render = function () {
     this.updateClass(this.board.snake.segments, "snake");
     // this.updateClass([this.board.apple.position], "apple");
-    this.updateClass(this.board.apples.positions, "apple");
+    this.updateClass(this.board.apples, "apple");
     this.updatePoints(this.board.points);
   };
 
