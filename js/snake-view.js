@@ -7,10 +7,6 @@
     this.ready = false;
     this.gameOver = true;
 
-    // var that = this;
-    // this.runGame(that);
-
-
     $(window).on("keydown", this.handleKeyEvent.bind(this));
   };
 
@@ -25,12 +21,6 @@
       100
     );
   };
-
-  // View.prototype.startScreen = function ($el) {
-  //   var points = "<div class=points>Welcome to Snake.\n Use the arrow keys to control the snake.\n Grow your snake by eating apples.\n Press any key to start.</div>";
-  //
-  //   $el.append(points);
-  // }
 
   View._MovementKeys = {
     37: "W",
@@ -98,7 +88,6 @@
 
   View.prototype.render = function () {
     this.updateClass(this.board.snake.segments, "snake");
-    // this.updateClass([this.board.apple.position], "apple");
     this.updateClass(this.board.apples, "apple");
     this.updatePoints(this.board.points);
   };
