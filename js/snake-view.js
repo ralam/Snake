@@ -88,6 +88,8 @@
 
   View.prototype.render = function () {
     this.updateClass(this.board.snake.segments, "snake");
+    this.updateClass([this.board.snake.head()], "head");
+    this.updateClass([this.board.snake.head()], this.board.snake.dir)
     this.updateClass(this.board.apples, "apple");
     this.updatePoints(this.board.points);
   };
