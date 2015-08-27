@@ -18,9 +18,11 @@
 
     context.intervalStep = window.setInterval(
       context.step.bind(context),
-      100
+      View.STEP_INTERVAL
     );
   };
+
+  View.STEP_INTERVAL = 100;
 
   View._MovementKeys = {
     37: "W",
@@ -47,7 +49,7 @@
         window.clearInterval(this.intervalStep);
       } else {
         this.ready = true;
-        this.intervalStep = window.setInterval(this.step.bind(this), 200);
+        this.intervalStep = window.setInterval(this.step.bind(this), View.STEP_INTERVAL);
       }
     }
   };
