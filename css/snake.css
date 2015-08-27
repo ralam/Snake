@@ -6,6 +6,12 @@ html, body, figure, figcaption, ul, div, h1 {
   text-align: inherit;
 }
 
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #C3E4ED
+}
+
 body {
   font-family: sans-serif;
   text-align: center;
@@ -20,6 +26,7 @@ div.snake-game {
   display: inline-block;
   float: left;
   border-radius: 3px;
+  background-color: #ffffff;
 }
 
 div.row:after {
@@ -35,13 +42,13 @@ div.cell {
 }
 
 .snake {
-  background: #00ff00;
+  background: #659D32;
 }
 
 .snake.head.N {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 20px solid #00ff00;
+  border-bottom: 20px solid #659D32;
   background: #ffffff;
   width: 0px;
   height: 0px;
@@ -49,7 +56,7 @@ div.cell {
 .snake.head.E {
   border-bottom: 10px solid transparent;
   border-top: 10px solid transparent;
-  border-left: 20px solid #00ff00;
+  border-left: 20px solid #659D32;
   background: #ffffff;
   width: 0px;
   height: 0px;
@@ -57,7 +64,7 @@ div.cell {
 .snake.head.S {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 20px solid #00ff00;
+  border-top: 20px solid #659D32;
   background: #ffffff;
   width: 0px;
   height: 0px;
@@ -65,7 +72,7 @@ div.cell {
 .snake.head.W {
   border-bottom: 10px solid transparent;
   border-top: 10px solid transparent;
-  border-right: 20px solid #00ff00;
+  border-right: 20px solid #659D32;
   background: #ffffff;
   width: 0px;
   height: 0px;
@@ -100,4 +107,5 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 3px;
+  background-color: #eeeeee;
 }
