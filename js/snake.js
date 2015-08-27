@@ -143,7 +143,7 @@
     var x = Math.floor(Math.random() * this.board.dim);
     var y = Math.floor(Math.random() * this.board.dim);
 
-    while (this.board.snake.isOccupying([x, y])) {
+    while (this.board.snake.isOccupying([x, y]) || this.board.isOccupied([x, y])) {
       x = Math.floor(Math.random() * this.board.dim);
       y = Math.floor(Math.random() * this.board.dim);
     }
@@ -177,6 +177,19 @@
 
     return grid;
   };
+
+  Board.prototype.isOccupied = function (array) {
+    var result = false;
+
+    this.apples.forEach(function (apple) {
+      if (apple.x === array[0] && apple.y === array[1]) {
+        result = true;
+        return result;
+      }
+    })
+
+    return result;
+  }
 
   Board.prototype.render = function () {
     var grid = Board.blankGrid(this.dim);
