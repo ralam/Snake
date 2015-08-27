@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snake</title>
+    <link rel="stylesheet" type="text/css" href="/css/snake.css">
+  </head>
+
+  <body>
+    <h1>Snake</h1>
+
+    <div class="container">
+      <div class="snake-game"></div>
+      <div class="instructions">
+        <div class="points">Press Space to start the game</div>
+        Controls: &#8592; &#8593; &#8594; &#8595;<br>
+        Hit ESC to pause/unpause the game.
+      </div>
+    </div>
+    <script src="/js/jquery-2.1.1.js"></script>
+    <script src="/js/snake.js"></script>
+    <script src="/js/snake-view.js"></script>
+
+    <script>
+      $(function () {
+        new Game.View($(".snake-game"));
+      });
+    </script>
+  </body>
+</html>
