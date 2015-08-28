@@ -74,6 +74,10 @@
 
     this.$el.html(html);
     this.$cell = this.$el.find(".cell");
+    var score = document.cookie.replace(/(?:(?:^|.*;\s*)snakeScore\s*\=\s*([^;]*).*$)|^.*$/, "$1")
+    if (score) {
+      $('.high-score').html(score)
+    }
   };
 
   View.prototype.step = function () {
@@ -83,6 +87,7 @@
     } else {
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
+      document.cookie = "snakeScore=" + this.board.points;
       this.gameOver = true;
     }
 
