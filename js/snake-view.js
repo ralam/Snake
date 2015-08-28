@@ -88,7 +88,7 @@
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
       var highScore = docCookies.getItem("score");
-      if (highScore < this.board.points) {
+      if (highScore > this.board.points) {
         docCookies.setItem("score", this.board.points);
       }
 
