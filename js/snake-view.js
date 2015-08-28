@@ -74,7 +74,7 @@
 
     this.$el.html(html);
     this.$cell = this.$el.find(".cell");
-    var highScore = getItem("score");
+    var highScore = docCookies.getItem("score");
     if (highScore) {
       $('.high-score').html(score)
     }
@@ -88,7 +88,7 @@
       debugger;
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
-      setItem("score", this.board.points);
+      docCookies.setItem("score", this.board.points);
 
       this.gameOver = true;
     }
