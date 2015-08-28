@@ -26,6 +26,7 @@
     <script>
       $(function () {
         new Game.View($(".snake-game"));
+        debugger;
         var highScore = Game.Utils.getItem("score");
         if (highScore) {
           $('.high-score').html("High score: " + highScore)
