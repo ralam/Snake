@@ -85,10 +85,11 @@
       this.board.snake.move();
       this.render();
     } else {
+      debugger;
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
       setItem("score", this.board.points);
-      debugger;
+
       this.gameOver = true;
     }
 
