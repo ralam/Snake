@@ -85,10 +85,12 @@
       this.board.snake.move();
       this.render();
     } else {
-      debugger;
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
-      docCookies.setItem("score", this.board.points);
+      var highScore = docCookies.getItem("score");
+      if (highScore < this.board.points) {
+        docCookies.setItem("score", this.board.points);
+      }
 
       this.gameOver = true;
     }
