@@ -109,3 +109,7 @@ h1 {
   border-radius: 3px;
   background-color: #eeeeee;
 }
+
+.high-score {
+  margin-bottom: 20px;
+}
