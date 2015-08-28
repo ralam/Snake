@@ -115,6 +115,6 @@
   }
 
   View.prototype.updatePoints = function (points) {
-    $('.points').html("Points: " + points);
+    $('.score').html("Score: " + points);
   };
 })();
