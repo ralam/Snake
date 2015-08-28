@@ -87,7 +87,8 @@
     } else {
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
-      setItem("score", this.board.points)
+      setItem("score", this.board.points);
+      debugger;
       this.gameOver = true;
     }
 
