@@ -76,7 +76,7 @@
     this.$cell = this.$el.find(".cell");
     var highScore = docCookies.getItem("score");
     if (highScore) {
-      $('.high-score').html(highScore)
+      $('.high-score').html("High score: " + highScore)
     }
   };
 
