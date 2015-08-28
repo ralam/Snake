@@ -74,7 +74,7 @@
 
     this.$el.html(html);
     this.$cell = this.$el.find(".cell");
-    var highScore = window.docCookies.getItem("score");
+    var highScore = Game.docCookies.getItem("score");
     if (highScore) {
       $('.high-score').html("High score: " + highScore)
     }
@@ -87,9 +87,9 @@
     } else {
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
-      var highScore = window.docCookies.getItem("score");
+      var highScore = Game.docCookies.getItem("score");
       if (highScore < this.board.points) {
-        window.docCookies.setItem("score", this.board.points);
+        Game.docCookies.setItem("score", this.board.points);
       }
 
       this.gameOver = true;

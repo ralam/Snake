@@ -1,5 +1,7 @@
 (function () {
-  var docCookies = window.docCookies =  {
+  var Game = window.Game = window.Game || {};
+
+  var docCookies = Game.docCookies =  {
   getItem: function (sKey) {
     if (!sKey) { return null; }
     return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
