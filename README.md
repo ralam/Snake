@@ -10,3 +10,7 @@ Controls:
  - Start a new game: `spacebar`
  - Change direction: `← ↑ → ↓`
  - Pause/unpause: `ESC`
+
+## Screenshot
+
+![](https://github.com/ralam/Snake/blob/gh-pages/images/snake-ss.jpg)
