@@ -21,7 +21,6 @@ body {
 div.snake-game {
   width: 400px;
   height: 400px;
-  margin-left: 20%;
   border: 5px solid #9F703A;
   display: inline-block;
   float: left;
@@ -112,4 +111,10 @@ h1 {
 
 .high-score {
   margin-bottom: 20px;
+}
+
+.game-container {
+  width:750px;
+  height: 500px;
+  margin: 0 auto;
 }
