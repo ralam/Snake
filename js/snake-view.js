@@ -13,6 +13,7 @@
   View.prototype.runGame = function(context) {
     this.ready = true;
     this.gameOver = false;
+    this.context= context;
     context.board = new Game.Board(20);
     context.setupGrid();
 
@@ -85,6 +86,8 @@
       this.board.snake.move();
       this.render();
     } else {
+      this.context.modal = new Game.Modal(this.board.points);
+      this.context.modal.render();
       alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
       var highScore = Game.Utils.getItem("score");
