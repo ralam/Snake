@@ -88,7 +88,7 @@
     } else {
       this.context.modal = new Game.Modal(this.board.points);
       this.context.modal.render();
-      alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
+      // alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
       var highScore = Game.Utils.getItem("score");
       if (highScore < this.board.points) {

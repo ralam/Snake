@@ -7,6 +7,7 @@
   };
 
   Modal.prototype.render = function () {
+    this.$modal.text("You lose! Your final score is " + this.points + ". Press Space to start a new game")
     $('body').append(this.$modal);
     $('body').append(this.$background);
   };

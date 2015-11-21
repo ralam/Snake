@@ -118,3 +118,27 @@ h1 {
   height: 500px;
   margin: 0 auto;
 }
+
+.background {
+  background: rgba(92, 88, 88, 0.6);
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.modal {
+  z-index: 2;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  background-color: white;
+  padding: 1pc;
+  border: 1px solid;
+  border-radius: 5px;
+  min-width: 50%;
+  text-align: center;
+}
