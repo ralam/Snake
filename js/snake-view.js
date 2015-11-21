@@ -91,7 +91,7 @@
       this.render();
     } else {
       this.modal.render(this.board.points);
-      // alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
+      this.listenToCloseModal();
       window.clearInterval(this.intervalStep);
       var highScore = Game.Utils.getItem("score");
       if (highScore < this.board.points) {
@@ -122,5 +122,14 @@
 
   View.prototype.updatePoints = function (points) {
     $('.score').html("Score: " + points);
+  };
+
+  View.prototype.listenToCloseModal = function () {
+    var that = this;
+    $('.background').on('click', function(){
+      if(that.gameOver) {
+        that.modal.remove();
+      };
+    });
   };
 })();
