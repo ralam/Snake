@@ -142,3 +142,7 @@ h1 {
   min-width: 50%;
   text-align: center;
 }
+
+.inactive {
+  visibility: none;
+}

@@ -15,6 +15,7 @@
     this.gameOver = false;
     this.context= context;
     context.board = new Game.Board(20);
+    context.modal = new Game.Modal();
     context.setupGrid();
 
     context.intervalStep = window.setInterval(
@@ -57,6 +58,9 @@
 
   View.prototype.startGame = function (keycode) {
     if (keycode === 32 && this.gameOver === true) {
+      if (typeof this.modal !== 'undefined') {
+        this.modal.remove();
+      }
       var that = this
       this.runGame(that);
     }
@@ -86,8 +90,7 @@
       this.board.snake.move();
       this.render();
     } else {
-      this.context.modal = new Game.Modal(this.board.points);
-      this.context.modal.render();
+      this.modal.render(this.board.points);
       // alert("You lose! Your final score is " + this.board.points + ". Press Space to start a new game");
       window.clearInterval(this.intervalStep);
       var highScore = Game.Utils.getItem("score");
